@@ -30,6 +30,8 @@ export interface AltyapiNokta {
   il: string
   kapasite?: string
   aciklama?: string
+  operatör?: string
+  url?: string
   stratejikOnem: 'dusuk' | 'orta' | 'yuksek' | 'kritik'
 }
 
