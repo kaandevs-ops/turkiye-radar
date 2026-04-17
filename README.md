@@ -204,4 +204,4 @@ All data is processed locally in the browser. No user data is sent to any extern
 
 ## 📄 License
 
-MIT
+Apache 2.0 — see [LICENSE](./LICENSE) for details.
