@@ -13,28 +13,28 @@ A real-time threat and event monitoring platform for Turkey. Earthquakes, securi
 
 ## 📸 Screenshots
 
-### 🗺️ Ana Harita — Cluster Görünümü
+### 🗺️ Main Map — Cluster View
 ![Ana Harita Cluster](public/screenshots/01-ana-harita-cluster.png)
 
-### 🛰️ Ana Harita — Satellite + Olay Detayı
+### 🛰️ Main Map — Satellite View + Event Details
 ![Ana Harita Satellite](public/screenshots/02-ana-harita-satellite.png)
 
-### 🤖 AI Sohbet Paneli
+### 🤖 AI Chat Panel
 ![AI Sohbet](public/screenshots/03-ai-sohbet.png)
 
-### 📊 Dashboard — Özet
+### 📊 Dashboard — Overview
 ![Dashboard Özet](public/screenshots/04-dashboard-ozet.png)
 
-### 📈 Dashboard — Trend Grafiği
+### 📈 Dashboard — Trend Chart
 ![Dashboard Trend](public/screenshots/05-dashboard-trend.png)
 
-### 🌍 Dashboard — AI Deprem Analizi
+### 🌍 Dashboard — Dashboard — AI Earthquake Analysis
 ![AI Deprem](public/screenshots/06-dashboard-ai-deprem.png)
 
-### ⚠️ Dashboard — AI Anomali Tespiti
+### ⚠️ Dashboard — Dashboard — AI Anomaly Detection
 ![AI Anomali](public/screenshots/07-dashboard-ai-anomali.png)
 
-### 🚗 AI Yol Analizi
+### 🚗 AI Road Analysis
 ![AI Yol Analizi](public/screenshots/08-ai-yol-analizi.png)
 
 
