@@ -1,146 +1,184 @@
 # 🇹🇷 Türkiye Radar
 
-Türkiye'ye özel gerçek zamanlı tehdit ve olay izleme platformu. Doğal afetler, güvenlik olayları, ekonomik göstergeler, hava kalitesi ve ulaşım verilerini tek haritada birleştirir. Yapay zeka destekli analizler ve akıllı rota uyarıları içerir.
+A real-time threat and event monitoring platform for Turkey. Earthquakes, security incidents, economic indicators, air quality, live news, maritime traffic, and flight data — all unified on a single interactive map, powered by AI-driven analysis.
+
+> Inspired by global situational awareness tools like WorldMonitor, built specifically for Turkey.
 
 ---
 
-## 📸 Ekran Görüntüleri
+## 📸 Screenshots
 
-> *(yakında eklenecek)*
+> *(coming soon)*
 
 ---
 
-## 🚀 Özellikler
+## ✨ Features
 
-### 🗺️ Canlı Olay Haritası
-- Türkiye genelindeki tüm olaylar interaktif harita üzerinde anlık olarak gösterilir
-- Olaylar kritiklik seviyesine göre renk kodlanır (kritik / yüksek / orta / düşük)
-- Kategori ve şiddet filtresi ile olaylar kolayca daraltılabilir
-- Olay detay paneli ile her olayın tam bilgisine tek tıkla ulaşılır
+### 🗺️ Live Event Map
+- All active events across Turkey displayed on an interactive map in real time
+- Color-coded by severity: critical / high / medium / low
+- Filter by category, severity level, or free-text search
+- Click any event to open a full detail panel with source, timestamp, coordinates, and description
+- Data auto-refreshes every 2 minutes with a live countdown timer
 
-### 🤖 Yapay Zeka Entegrasyonu
-- **Deprem Risk Analizi** — Son deprem verileri AI ile işlenerek risk skoru, yoğun bölge tespiti ve 24 saatlik tahmin üretilir
-- **Anomali Tespiti** — Döviz kurları ve hava kalitesi verilerinde olağandışı sapmalar otomatik olarak tespit edilir
-- **Yol Analizi** — İki nokta arasındaki güzergah üzerindeki tüm aktif olaylar (trafik, hava durumu, güvenlik vb.) analiz edilerek alternatif rotalar ve uyarılar sunulur
-- Desteklenen AI sağlayıcıları: **Ollama** (yerel), **Groq**, **OpenAI**, **Anthropic**
+### 🤖 AI-Powered Analysis
+- **Event Summarizer** — Click any news item to get an AI-generated summary, importance score (1–10), keyword extraction, and category validation
+- **Event Chat** — Ask follow-up questions about any specific event in a contextual chat interface (e.g. "Which regions are affected?", "What should be done?")
+- **Earthquake Risk Analysis** — Last 30 seismic events are processed by AI to produce a risk score (0–100), active fault zone identification, trend detection (rising / falling / stable), and a 24-hour risk forecast
+- **Anomaly Detection** — AI monitors live exchange rates (USD, EUR, GBP) and air quality index for statistical outliers and flags unusual deviations automatically
+- **AI Route Analysis** — Select two points on the map; AI scans all active events along the route (traffic, weather, security, road closures) and returns a risk assessment with alternative route suggestions
+
+Supported AI providers:
+
+| Provider | Default Model | Notes |
+|---|---|---|
+| Ollama | qwen3.5:latest | Local, no API key needed |
+| Groq | llama3-70b-8192 | API key required |
+| OpenAI | gpt-4o-mini | API key required |
+| Anthropic | claude-haiku | API key required |
 
 ### 📊 Dashboard
-- Toplam olay sayısı, kritik olay sayısı ve son 1 saatteki aktivite özeti
-- Şiddet dağılımı ve kategori bazlı olay istatistikleri
-- Son 7 günlük trend grafiği
-- Kaynak bazlı veri dağılımı
+- Total event count, critical alert count, high-severity count, and last-hour activity
+- Severity distribution bar chart and donut chart with percentage breakdown
+- Category breakdown with relative frequency bars (up to 12 categories)
+- 7-day trend chart with daily totals, color-coded by highest severity of the day
+- Data source distribution showing which APIs contributed what volume
 
-### 📰 Canlı Haberler
-- NTV, CNN Türk, Hürriyet, Sabah, Sözcü RSS akışlarından gündem haberleri
-- Haberler harita olaylarıyla ilişkilendirilerek gösterilir
+### 🔔 Smart Notifications
+- Real-time toast notifications for all incoming critical and high-severity events
+- Audio alerts with distinct sounds for critical vs. high-priority events (Web Audio API, no external dependency)
+- Notifications auto-dismiss after 10 seconds; up to 6 stacked simultaneously
+- Sound can be toggled on/off from the top-right corner
 
-### 💱 Ekonomik Göstergeler
-- TCMB'den anlık döviz kurları (USD, EUR, GBP ve diğerleri)
-- Borsa, faiz ve enflasyon kategorisi altında ekonomik gelişmeler
+### 👤 Personalized Feed
+- User interaction profile stored locally — every event click is recorded by category
+- Events are re-ranked based on your interest history: categories you engage with most appear higher
+- Freshness bonus for events published in the last 2 hours
+- Severity bonus layered on top of personal preferences
+- Profile resets automatically; no account or login required
 
-### 🌍 Veri Kaynakları
-| Kategori | Kaynaklar |
+### 📰 Live News Panel
+- Bottom news ticker pulling from NTV, CNN Türk, Hürriyet, Sabah, and Sözcü RSS feeds
+- News cards are linked to map events; clicking a card focuses the map on that location
+- Panel can be toggled open/closed without losing map context
+
+### 💱 Economic Indicators
+- Live TCMB (Central Bank of Turkey) exchange rates: USD, EUR, GBP, and more
+- Rates refresh every 5 minutes
+- Bottom status bar toggles between exchange rate view and event statistics view
+
+### 🌐 Data Sources
+
+| Category | Sources |
 |---|---|
-| Deprem | USGS |
-| Meteoroloji & Uyarı | MGM, AFAD |
-| Hava Kalitesi | OpenAQ benzeri API |
-| Döviz | TCMB |
-| Haberler | NTV, CNN Türk, Hürriyet, Sabah, Sözcü |
-| Ulaşım | KGM Yol Durumu |
-| Gemiler | AIS verileri |
-| Uçaklar | Canlı uçuş verileri |
-| Siber Olaylar | CyberMonitor |
-| Çatışma & Güvenlik | ACLED |
-| Orman Yangınları | NASA FIRMS, NASA EONET |
+| Earthquakes | USGS |
+| Weather Alerts | MGM (Turkish Meteorological Service) |
+| Disaster Warnings | AFAD |
+| Air Quality | OpenAQ-compatible API |
+| Exchange Rates | TCMB (Central Bank of Turkey) |
+| News | NTV, CNN Türk, Hürriyet, Sabah, Sözcü |
+| Road Conditions | KGM (General Directorate of Highways) |
+| Maritime Traffic | AIS live vessel data |
+| Flight Tracking | Live flight data API |
+| Cyber Incidents | CyberMonitor |
+| Conflict & Security | ACLED |
+| Wildfires | NASA FIRMS, NASA EONET |
+| Infrastructure | Custom aggregation |
+
+### 🗂️ Event Categories (50+)
+
+Natural disasters (earthquake, aftershock, flood, wildfire, storm, tornado, landslide, tsunami, heatwave, blizzard, drought, volcanic), security (terrorism, military operation, protest, arrest, border incident, smuggling), transportation (traffic accident, road closure, flight incident, maritime incident, train crash, metro), infrastructure (power outage, gas/water/internet outage, building collapse, mining accident), economics (exchange rate, inflation, stock market, strike, bankruptcy), health (epidemic, hospital, poisoning, food contamination), environment (air pollution, sea pollution, deforestation, nuclear), politics (parliament, election, court, corruption), and more.
 
 ---
 
-## 🛠️ Kurulum
+## 🏗️ Tech Stack
 
-### Gereksinimler
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript |
+| Map | Leaflet + React Leaflet + MarkerCluster |
+| Styling | Tailwind CSS |
+| AI | Multi-provider (Ollama / Groq / OpenAI / Anthropic) |
+| Audio | Web Audio API (no dependencies) |
+| Storage | localStorage (event history, user profile, AI config) |
+| Data | 12+ external APIs via Next.js API routes |
+
+---
+
+## 🚀 Getting Started
+
+### Requirements
 - Node.js 18+
-- npm veya yarn
+- npm or yarn
 
-### Adımlar
+### Installation
 
 ```bash
-# Repoyu klonla
 git clone https://github.com/kaandevs-ops/turkiye-radar.git
 cd turkiye-radar
-
-# Bağımlılıkları yükle
 npm install
-
-# Geliştirme sunucusunu başlat
 npm run dev
 ```
 
-Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini aç.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### AI Setup (Optional)
+No AI configuration is required to use the map. To enable AI features, click the AI settings icon in the sidebar and choose your provider:
+
+- **Ollama (recommended for local use):** Install [Ollama](https://ollama.com), pull a model (`ollama pull qwen3:latest`), and select Ollama in settings — no API key needed
+- **Groq / OpenAI / Anthropic:** Enter your API key in the AI settings panel
 
 ---
 
-## ⚙️ Yapılandırma
-
-### AI Ayarları
-Uygulama içi AI Ayarları panelinden sağlayıcı seçimi yapılır. API anahtarı gerekmez — yerel Ollama kullanımı desteklenir.
-
-| Sağlayıcı | Model (varsayılan) | Notlar |
-|---|---|---|
-| Ollama | qwen3.5:latest | Yerel, ücretsiz |
-| Groq | llama3-70b-8192 | API key gerekli |
-| OpenAI | gpt-4o-mini | API key gerekli |
-| Anthropic | claude-haiku | API key gerekli |
-
----
-
-## 🏗️ Teknoloji Yığını
-
-- **Framework:** Next.js 15 (App Router)
-- **Dil:** TypeScript
-- **Harita:** Leaflet + React Leaflet
-- **Stil:** Tailwind CSS
-- **AI:** Çoklu sağlayıcı (Ollama / Groq / OpenAI / Anthropic)
-
----
-
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── api/          # Backend API rotaları
-│   │   ├── acled/    # Çatışma verileri
-│   │   ├── ai/       # AI proxy
-│   │   ├── depremler/
-│   │   ├── doviz/
-│   │   ├── firms/    # NASA orman yangınları
-│   │   ├── gemiler/
-│   │   ├── haberler/
-│   │   ├── hava/
-│   │   ├── havakalitesi/
-│   │   ├── ucaklar/
-│   │   └── ...
-│   └── page.tsx      # Ana sayfa
+│   ├── api/
+│   │   ├── acled/        # Conflict & security events
+│   │   ├── ai/           # Multi-provider AI proxy
+│   │   ├── altyapi/      # Infrastructure outages
+│   │   ├── cybermonitor/ # Cyber incidents
+│   │   ├── depremler/    # Earthquake data (USGS)
+│   │   ├── doviz/        # Exchange rates (TCMB)
+│   │   ├── eonet/        # NASA natural events
+│   │   ├── firms/        # NASA wildfire data
+│   │   ├── gemiler/      # Maritime traffic
+│   │   ├── haberler/     # News RSS feeds
+│   │   ├── hava/         # Weather alerts
+│   │   ├── havakalitesi/ # Air quality
+│   │   ├── telegram/     # Telegram channel feed
+│   │   └── ucaklar/      # Flight tracking
+│   └── page.tsx
 ├── components/
-│   ├── Harita.tsx
-│   ├── Dashboard.tsx
-│   ├── Sidebar.tsx
-│   ├── DetayPanel.tsx
-│   ├── HaberKartlari.tsx
-│   ├── IstatistikBar.tsx
-│   ├── YolAnaliz.tsx
-│   ├── AIAyarlar.tsx
-│   └── Bildirim.tsx
+│   ├── AIAyarlar.tsx     # AI provider settings panel
+│   ├── Bildirim.tsx      # Real-time alert notifications
+│   ├── Dashboard.tsx     # Statistics & AI analysis dashboard
+│   ├── DetayPanel.tsx    # Event detail + AI chat panel
+│   ├── HaberKartlari.tsx # Bottom news cards
+│   ├── Harita.tsx        # Interactive Leaflet map
+│   ├── IstatistikBar.tsx # Bottom status bar (exchange rates / stats)
+│   ├── Sidebar.tsx       # Event list, filters, personalized feed
+│   └── YolAnaliz.tsx     # AI route analysis modal
 ├── lib/
-│   ├── ai.ts
-│   ├── aiIslemler.ts
-│   └── kaynaklar.ts
+│   ├── ai.ts             # AI config management
+│   ├── aiIslemler.ts     # AI functions (summarize, analyze, detect)
+│   ├── kaynaklar.ts      # Category definitions, colors, source URLs
+│   └── kullanici.ts      # User profile & personalization engine
 └── types/
-    └── olay.ts
+    └── olay.ts           # Core event type definition
 ```
 
 ---
 
-## 📄 Lisans
+## 🔒 Privacy
+
+All data is processed locally in the browser. No user data is sent to any external server. The personalization profile (click history) is stored exclusively in `localStorage` and never leaves your device. AI requests go directly from your browser to your chosen provider.
+
+---
+
+## 📄 License
 
 MIT
