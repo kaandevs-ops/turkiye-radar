@@ -4,6 +4,11 @@ A real-time threat and event monitoring platform for Turkey. Earthquakes, securi
 
 > Inspired by global situational awareness tools like WorldMonitor, built specifically for Turkey.
 
+
+## 🎬 Demo
+
+![Demo](demo.gif)
+
 ---
 
 ## 📸 Screenshots
